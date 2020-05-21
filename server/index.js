@@ -5,6 +5,8 @@ session = require ('express-session'),
 massive = require('massive'),
 path = require('path'),
 {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
+{login, register, logout, userSession} = require('./controllers/authCtrl'),
+{getStores, addStores,editStores,deleteStores,editRating} = require('./controllers/storesCtrl'),
 app = express();
 
 app.use(express.static(`${__dirname}/../build`));
@@ -26,17 +28,21 @@ massive({
     console.log('db testing connected')
 }).catch(err=>console.log('db can not connect'))
 
-// //AUTH//
-// app.post('/api/register', register)
-// app.post('/api/login', login)
-// app.post('/api/logout', logout)
-// app.get('/auth/user_session', userSession)
+//AUTH//
+app.post('/api/register', register)
+app.post('/api/login', login)
+app.post('/api/logout', logout)
+app.get('/auth/user_session', userSession)
 
-// //Stores//
-// app.get('/api/stores', getStores)
-// app.post('/api/addstores', addStores)
-// app.put('/api/editstores/:id', editStores)
-// app.delete('/api/deletestores/:id', deleteStores)
+//Stores-AUTH//
+app.get('/api/stores', getStores)
+app.post('/api/addstores', addStores)
+app.put('/api/editstores/:id', editStores)
+app.delete('/api/deletestores/:id', deleteStores)
+
+// Stores-normal-users
+app.put('/api/editrating/:id', editRating)
+
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
