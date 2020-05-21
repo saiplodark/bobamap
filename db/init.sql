@@ -4,7 +4,7 @@
 CREATE TABLE users(
     user_id SERIAL PRIMARY KEY,
     username TEXT,
-    hashed_password CHAR(16),
+    hashed_password VARCHAR,
     is_admin BOOLEAN
 );
 

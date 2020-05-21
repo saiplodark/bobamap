@@ -1,24 +1,20 @@
 const bcrypt = require('bcrypt')
-const {v4} = require('uuid')
 
 module.exports={
     register: async (req, res) => {
         try {
             const db = req.app.get('db')
-            let {username,hashed_password,is_admin} = req.body
+            let {username,password,is_admin} = req.body
             let users = await db.auth.select_user(username)
             let user = users[0]
             
             if (user) {
                 return res.status(409).send('username exists')
             }
-            if (admin) {
-                id = v4()
-            }
             const salt = bcrypt.genSaltSync(10)
-            const hash = bcrypt.hashSync(hashed_password, salt)
+            const hash = bcrypt.hashSync(password, salt)
 
-            let response = await db.users.add_user({ username, hashed_password, is_admin})
+            let response = await db.users.add_user([ username, hash, is_admin])
             let newUser = response[0]
     
             delete newUser.password
@@ -33,14 +29,14 @@ module.exports={
     login: async(req,res)=>{
         try {
             const db = req.app.get('db')
-            let {username, hashed_password} = req.body
+            let {username, password} = req.body
             let users = await db.users.select_user(username)
             let user = users[0]
 
             if(!user){
                 return res.status(401).send('user infromation wrong')
             }
-            let isAuth = bcrypt.compareSync(hashed_password, user.hashed_password)
+            let isAuth = bcrypt.compareSync(password, user.hashed_password)
           
             if(!isAuth){
                 return res.status(401).send('user infromation wrong')

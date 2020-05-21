@@ -7,6 +7,7 @@ path = require('path'),
 {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
 {login, register, logout, userSession} = require('./controllers/authCtrl'),
 {getStores, addStores,editStores,deleteStores,editRating} = require('./controllers/storesCtrl'),
+{adminOnly} = require('./middleware/adminOnly')
 app = express();
 
 app.use(express.static(`${__dirname}/../build`));
@@ -26,7 +27,7 @@ massive({
 }).then(db=>{
     app.set('db', db)
     console.log('db testing connected')
-}).catch(err=>console.log('db can not connect'))
+}).catch(err=>console.log('db can not connect', err))
 
 //AUTH//
 app.post('/api/register', register)
@@ -36,9 +37,9 @@ app.get('/auth/user_session', userSession)
 
 //Stores-AUTH//
 app.get('/api/stores', getStores)
-app.post('/api/addstores', addStores)
-app.put('/api/editstores/:id', editStores)
-app.delete('/api/deletestores/:id', deleteStores)
+app.post('/api/addstores',adminOnly, addStores)
+app.put('/api/editstores/:id', adminOnly, editStores)
+app.delete('/api/deletestores/:id', adminOnly, deleteStores)
 
 // Stores-normal-users
 app.put('/api/editrating/:id', editRating)

@@ -2,8 +2,8 @@ module.exports={
     getStores: async(req,res)=>{
         try {
             const db =req.app.get('db')
-            const{user_id} = req.session.user
-            const stores = await db.stores.get_stores([user_id])
+            // const{user_id} = req.session.user
+            const stores = await db.stores.get_stores()
             res.status(200).send(stores)            
         } catch (error) {
             console.log('error getting stores')
@@ -27,7 +27,7 @@ module.exports={
             const db = req.app.get('db')
             const{comment} = req.query
             const{id} = req.params
-            const {user_id} = req.session.user
+            // const {user_id} = req.session.user
             const stores = await db.stores.update_stores([id, comment])
             res.status(200).send(stores)  
         } catch (error) {
@@ -35,12 +35,11 @@ module.exports={
             res.status(500).send(error)
         }
     },
-    deleteStores: async (req, rest) => {
+    deleteStores: async (req, res) => {
         try {
             const db = req.app.get('db')
             const {id} = req.params
-            const {user_id} = req.session.user
-            const stores = await db.stores.delete_store({user_id, id}) 
+            const stores = await db.stores.delete_stores(id) 
             res.status(200).send(stores)
         } catch (error) {
             console.log('error deleting stores', error)
@@ -52,8 +51,8 @@ module.exports={
             const db = req.app.get('db')
             const{rating} = req.query
             const{id} = req.params
-            const {user_id} = req.session.user
-            const stores = await db.ratings.update_rating([id, rating])
+            // const {user_id} = req.session.user
+            const stores = await db.ratings.update_ratings([id, rating])
             res.status(200).send(stores)  
         } catch (error) {
             console.log('error updating rating')
