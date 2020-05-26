@@ -5,7 +5,7 @@ module.exports={
         try {
             const db = req.app.get('db')
             let {username,password,is_admin} = req.body
-            let users = await db.auth.select_user(username)
+            let users = await db.users.select_user(username)
             let user = users[0]
             
             if (user) {

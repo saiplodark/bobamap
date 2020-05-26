@@ -72,7 +72,7 @@ class Stores extends Component{
             console.log(this.state.stores)
             const mappedstores = this.state.stores.map(stores=><Showstores
                 key={stores.store_id}
-                cars={stores}
+                stores={stores}
                 editStores={this.editStores}
                 editRating={this.editRating}
                 deleteStores={this.deleteStores}/>

@@ -10,6 +10,7 @@ class AddStores extends Component{
             comment:'',
             rating:''
     }
+    this.submitHandler = this.submitHandler.bind(this)
     }
     submitHandler(e){
         e.preventDefault()
@@ -33,7 +34,7 @@ class AddStores extends Component{
                     name = "img"
                     value = {this.state.img}
                     onChange = {(e)=> this.changeHandler(e)}
-                    placeholder = "car img"/>
+                    placeholder = "store img"/>
                 </span>
                 <span>
                     <label>name</label>

@@ -1,14 +1,14 @@
 module.exports={
     getStores: async(req,res)=>{
-        try {
+        // try {
             const db =req.app.get('db')
             // const{user_id} = req.session.user
             const stores = await db.stores.get_stores()
             res.status(200).send(stores)            
-        } catch (error) {
-            console.log('error getting stores')
-            res.status(500).send(error)
-        }
+        // } catch (error) {
+        //     console.log('error getting stores')
+        //     res.status(500).send(error)
+        // }
     },
     addStores: async (req, res) => {
         try {
@@ -58,5 +58,18 @@ module.exports={
             console.log('error updating rating')
             res.status(500).send(error)
         }
+    },
+    avgRating:async(req,res,next)=>{
+        try {
+            const db = req.app.get('db')
+            const{store_id}=req.session.store
+            console.log(store_id)
+            const stores=await db.rating.avg_ratings(store_id)
+            res.status(200).send(stores)       
+        } catch (error) {
+            console.log('error getting avg rating')
+            res.status(500).send(error)
+        }
     }
+
 }

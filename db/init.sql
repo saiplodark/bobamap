@@ -13,11 +13,11 @@ CREATE TABLE stores(
     img TEXT,
     name VARCHAR(32),
     address NCHAR,
-    comment TEXT,
+    comment TEXT
 );
 
 CREATE TABLE rating(
     rating_id SERIAL PRIMARY KEY,
-    rating TINYINT,
+    rating INT,
     store_id INT REFERENCES stores(store_id)
 );

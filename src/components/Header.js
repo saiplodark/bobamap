@@ -3,9 +3,7 @@ import {connect} from 'react-redux'
 import{getUserSession} from '../redux/userReducer'
 import Nav from '../Nav'
 import routes from '../routes'
-import axios from 'axios'
 import Signout from './Signout'
-import './Header.scss'
 import{Link} from 'react-router-dom'
 
 
