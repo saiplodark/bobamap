@@ -13,9 +13,9 @@ module.exports={
     addStores: async (req, res) => {
         try {
             const db = req.app.get('db')
-            const {name,address,comment,rating} = req.body
+            const {img,name,address,comment,rating} = req.body
             const {user_id} = req.session.user
-            const stores = await db.stores.add_stores({name,address,comment,rating})
+            const stores = await db.stores.add_stores({img,name,address,comment,rating})
             res.status(200).send(stores)
         } catch (error) {
             console.log('error add stores', error)
