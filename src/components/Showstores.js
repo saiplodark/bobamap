@@ -50,7 +50,7 @@ function Showstores(props) {
                     <p>{name}</p>
                     <p>{address}</p>
                     <p>{rating}</p>
-                    <p>{props.stores.comment}</p>
+                    <p>{comment}</p>
                 </div>
         }
     </div>

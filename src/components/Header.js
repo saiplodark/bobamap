@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import{getUserSession} from '../redux/userReducer'
+import{userSession} from '../Redux/userReducer'
 import Nav from '../Nav'
 import routes from '../routes'
 import Signout from './Signout'
-import{Link} from 'react-router-dom'
+// import{Link} from 'react-router-dom'
 
 
 class Header extends React.Component{
@@ -27,14 +27,14 @@ class Header extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getUserSession()
+        this.props.userSession()
     }
 
     render(){
         console.log("HEADER props: ", this.props)
 
         return <div className='header'>
-            <button className='menu' onClick={()=>this.toggleSideBarFunc()}>Menu</button>
+            {/* <button className='menu' onClick={()=>this.toggleSideBarFunc()}>Menu</button>
                     <nav className={this.state.toggleSideBar? "show":"hide"}>
             <div className="main">
             <Link to ="/" className = 'stores'>Stores</Link>
@@ -42,18 +42,19 @@ class Header extends React.Component{
             <Link to ="/login" className = 'login'>Login</Link>
             <Link to ="/support" className = 'support'>Support</Link>
     </div>
-                    </nav>
-            {
+                    </nav> */}
+            {/* {
                 (this.props.loading)
                 ?
                 <div>Loading...</div>
-                :<div>Welcome, {this.props.user.username}!</div>
+                :<div>Welcome, {}!</div>
             }
             {
                 this.props.user?
                 <Signout className='so'/>
                 :null
-            }
+            } */}
+                    <Signout/>
                     <Nav/>
                     {routes}
                 </div>
@@ -61,6 +62,6 @@ class Header extends React.Component{
 }
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = {getUserSession}
+const mapDispatchToProps = {userSession}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Header)

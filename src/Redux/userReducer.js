@@ -3,7 +3,8 @@ import axios from 'axios'
 const
     REGISTER_USER = 'REGISTER_USER',
     LOGIN_USER = 'LOGIN_USER',
-    LOGOUT_USER = 'LOGOUT_USER';
+    LOGOUT_USER = 'LOGOUT_USER',
+    GET_USER = 'GET_USER';
 
 const initialState = {
     date: null,
@@ -89,5 +90,14 @@ export function logout(){
     return{
         type:LOGOUT_USER,
         payload:axios.post('/api/logout')
+    }
+}
+
+export function userSession(){
+    let user= axios.get('/api/user_session').then(res =>res.data)
+    console.log("from redux: ", user)
+    return{
+        type:GET_USER,
+        payload:user
     }
 }

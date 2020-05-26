@@ -29,9 +29,9 @@ export default class Login extends React.Component{
     }
 
     toggleAdmin() {
-        const { isAdmin } = this.state;
-        this.setState({ isAdmin: !isAdmin });
-      }
+    const { isAdmin } = this.state;
+    this.setState({ isAdmin: !isAdmin });
+  }
 
     async login(){
         const {username, password} = this.state
@@ -42,8 +42,8 @@ export default class Login extends React.Component{
     
 
     async register(){
-        const {password, username} = this.state
-        const user = await axios.post('/api/register', {username, password})
+        const {password, username, isAdmin} = this.state
+        const user = await axios.post('/api/register', {username, password, isAdmin})
         console.log("from register: ", user.data)
         this.setState({redirect:true})
     }
@@ -67,8 +67,8 @@ export default class Login extends React.Component{
                 <div className="register">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
+                    <input type="checkbox" id="adminCheckbox" onChange={() => this.toggleAdmin()} />
                     <button onClick={this.register}>Register</button>
-                    <input type="checkbox" id="adminCheckbox" onChange={() => this.toggleAdmin()} /> <span> Admin </span>
                     <button onClick={() => this.toggleRegisterMode()}>Member signin</button>
                 </div>
             }

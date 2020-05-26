@@ -8,7 +8,6 @@ class AddStores extends Component{
             name:'',
             address:'',
             comment:'',
-            rating:''
     }
     this.submitHandler = this.submitHandler.bind(this)
     }

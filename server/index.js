@@ -33,7 +33,7 @@ massive({
 app.post('/api/register', register)
 app.post('/api/login', login)
 app.post('/api/logout', logout)
-app.get('/auth/user_session', userSession)
+app.get('/api/user_session', userSession)
 
 //Stores-AUTH//
 app.get('/api/stores', getStores)
