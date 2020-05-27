@@ -43,6 +43,7 @@ module.exports={
             }
             delete user.hashed_password
             req.session.user = user
+            req.session.user.logged_in = true
             res.send(req.session.user)
         } catch (error) {
             console.log('error happening' ,error)

@@ -1,14 +1,14 @@
 module.exports={
     getStores: async(req,res)=>{
-        // try {
+        try {
             const db =req.app.get('db')
             // const{user_id} = req.session.user
             const stores = await db.stores.get_stores()
             res.status(200).send(stores)            
-        // } catch (error) {
-        //     console.log('error getting stores')
-        //     res.status(500).send(error)
-        // }
+        } catch (error) {
+            console.log('error getting stores')
+            res.status(500).send(error)
+        }
     },
     addStores: async (req, res) => {
         try {
@@ -16,6 +16,7 @@ module.exports={
             const {img,name,address,comment} = req.body
             const {user_id} = req.session.user
             const stores = await db.stores.add_stores({img,name,address,comment})
+            console.log(stores)
             res.status(200).send(stores)
         } catch (error) {
             console.log('error add stores', error)

@@ -4,6 +4,8 @@ module.exports={
         if(!is_admin){
             res.status(401).send('unauthorized')
         }
-        next()
+        else {
+            next()
+        }
     }
 }

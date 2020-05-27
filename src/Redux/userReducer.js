@@ -7,7 +7,7 @@ const
     GET_USER = 'GET_USER';
 
 const initialState = {
-    date: null,
+    data: {logged_in:false, is_admin:false},
     loading: false
 }
 

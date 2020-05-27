@@ -47,7 +47,7 @@ class AddStores extends Component{
                 <span>
                     <label>address</label>
                     <input
-                    type ="number"
+                    type ="text"
                     name = "address"
                     value = {this.state.address}
                     onChange = {(e)=> this.changeHandler(e)}
@@ -56,20 +56,11 @@ class AddStores extends Component{
                 <span>
                     <label>comment</label>
                     <input
-                    type ="number"
+                    type ="text"
                     name = "comment"
                     value = {this.state.comment}
                     onChange = {(e)=> this.changeHandler(e)}
-                    placeholder = "how far you drove"/>
-                </span>
-                <span>
-                    <label>rating</label>
-                    <input
-                    type ="text"
-                    name = "rating"
-                    value = {this.state.rating}
-                    onChange = {(e)=> this.changeHandler(e)}
-                    placeholder = "rating"/>
+                    placeholder = "Comment"/>
                 </span>
                 <button >add</button>
                 </form>

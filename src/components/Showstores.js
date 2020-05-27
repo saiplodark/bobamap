@@ -8,6 +8,7 @@ function Showstores(props) {
     const [rating, setrating] = useState(props.stores.rating)
     const [comment, setcomment] = useState(props.stores.comment)
     const { logged_in, is_admin } =props.user
+    console.log(logged_in)
 
   const  avgRating = ()=>{
         axios.get('/api/avgrating')
@@ -15,7 +16,7 @@ function Showstores(props) {
             console.log(ap)
         })
     }
-    useEffect(() => {avgRating()})
+    // useEffect(() => {avgRating()})
 
     return <div className='showstores'>
         {logged_in ?
@@ -29,9 +30,12 @@ function Showstores(props) {
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
+                     <button onClick={()=>props.editRating(store_id)}>Edit Rating</button>
                     <input name='comment' placeholder='newcomment' onChange={(event) => {
                         setcomment(event.target.value)
                     }} />
+                     <button onClick={()=>props.editStores(store_id)}>Edit Comment</button>
+                      <button onClick={()=>props.deleteStores(store_id)}>Delete</button>
                 </div>
                 :
                 <div>
@@ -43,6 +47,7 @@ function Showstores(props) {
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
+                      <button onClick={()=>props.editRating(store_id)}>Edit Rating</button>
                 </div>
                 :
                 <div>

@@ -35,11 +35,14 @@ class Stores extends Component{
         }
     
         addStores=(info)=>{
-            const{img, name, address, comment ,rating} = info
-            const newStores = {img, name, address, comment ,rating}
+            const{img, name, address, comment} = info
+            const newStores = {img, name, address, comment}
             axios.post('/api/addstores', newStores)
             .then(()=>{
-                console.log('failed to add new stores')
+               this.getStores()
+            })
+            .catch(err=>{
+                console.log('failed to add stores')
             })
         }
 

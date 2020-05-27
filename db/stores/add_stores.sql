@@ -1,4 +1,3 @@
-INSERT INTO stores (img,name, address, comment)
-VALUES
-($1,$2,$3,$4)
+INSERT INTO stores (img, name, address, comment)
+VALUES (${img},${name},${address},${comment})
 RETURNING *;

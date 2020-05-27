@@ -11,8 +11,8 @@ CREATE TABLE users(
 CREATE TABLE stores(
     store_id SERIAL PRIMARY KEY,
     img TEXT,
-    name VARCHAR(32),
-    address NCHAR,
+    name VARCHAR,
+    address VARCHAR,
     comment TEXT
 );
 
