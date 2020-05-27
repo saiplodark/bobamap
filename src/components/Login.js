@@ -1,19 +1,21 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import {login, register} from '../Redux/userReducer'
 
-export default class Login extends React.Component{
-    constructor(){
-        super()
+ class Login extends React.Component{
+    constructor(props){
+        super(props)
         this.state={
             username:'',
             password:'',
             registerMode: false,
-            isAdmin:false,
+            is_admin:false,
             redirect: false
         }
-        this.login = this.login.bind(this)
-        this.register = this.register.bind(this)
+        this.handleLogin = this.handleLogin.bind(this)
+        this.handleRegister = this.handleRegister.bind(this)
     }
 
     toggleRegisterMode(){
@@ -28,25 +30,32 @@ export default class Login extends React.Component{
         })
     }
 
-    toggleAdmin() {
-    const { isAdmin } = this.state;
-    this.setState({ isAdmin: !isAdmin });
+    toggle_admin() {
+    const { is_admin } = this.state;
+    this.setState({ is_admin: !is_admin });
   }
 
-    async login(){
-        const {username, password} = this.state
-        const user = await axios.post('/api/login', {username, password})
-        console.log("from login: ", user.data)
-        this.setState({redirect:true})
-        }
+  handleLogin = e => {
+    e.preventDefault()
+    this.props.login(this.state)
+        .then(() => {
+            this.props.history.push("/")
+        })
+        .catch(err => {
+            console.log('error login', err)
+        })
+}
     
-
-    async register(){
-        const {password, username, isAdmin} = this.state
-        const user = await axios.post('/api/register', {username, password, isAdmin})
-        console.log("from register: ", user.data)
-        this.setState({redirect:true})
-    }
+handleRegister = e => {
+    e.preventDefault()
+    this.props.register(this.state)
+        .then(() => {
+            this.props.history.push("/")
+        })
+        .catch(err => {
+            console.log('error register', err)
+        })
+}
 
     render(){
 
@@ -61,17 +70,27 @@ export default class Login extends React.Component{
                 <div className="login">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
-                    <button onClick={this.login}>Login</button>
+                    <button onClick={this.handleLogin}>Login</button>
                 </div>
                 :
                 <div className="register">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
-                    <input type="checkbox" id="adminCheckbox" onChange={() => this.toggleAdmin()} />
-                    <button onClick={this.register}>Register</button>
+                    <input type="checkbox" id="_adminCheckbox" onChange={() => this.toggle_admin()} />
+                    <button onClick={this.handleRegister}>Register</button>
                     <button onClick={() => this.toggleRegisterMode()}>Member signin</button>
                 </div>
             }
         </div>
     }
 }
+
+let mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        login:state.login,
+        register:state.register
+    };
+}
+
+export default connect(mapStateToProps,{login,register})(Login)

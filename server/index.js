@@ -10,7 +10,7 @@ path = require('path'),
 {adminOnly} = require('./middleware/adminOnly')
 app = express();
 
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 app.use(session({
     secret:SESSION_SECRET,
@@ -46,9 +46,9 @@ app.put('/api/editrating/:id', editRating)
 app.get('/api/avgrating', avgRating)
 
 
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+// app.get('*', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '../build/index.html'));
+// });
 
 app.listen(SERVER_PORT, ()=>{
     console.log(`Server connect  to port ${SERVER_PORT}`)

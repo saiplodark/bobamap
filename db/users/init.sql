@@ -1,4 +1,5 @@
 -- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS rating;
 -- DROP TABLE IF EXISTS stores;
 
 CREATE TABLE users(
