@@ -70,14 +70,16 @@ handleRegister = e => {
                 <div className="login">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
-                    <button onClick={this.handleLogin}>Login</button>
+                    <button
+                     onClick={this.handleLogin}>Login</button>
                 </div>
                 :
                 <div className="register">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
                     <input type="checkbox" id="_adminCheckbox" onChange={() => this.toggle_admin()} />
-                    <button onClick={this.handleRegister}>Register</button>
+                    <button 
+                    onClick={this.handleRegister}>Register</button>
                     <button onClick={() => this.toggleRegisterMode()}>Member signin</button>
                 </div>
             }

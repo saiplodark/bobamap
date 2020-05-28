@@ -29,15 +29,17 @@ return <div className='showstores'>
                     <p>{name}</p>
                     <p>{address}</p>
                     <p>{props.stores.comment}</p>
-                    <p>{props.stores.rating}</p>
+                    <p>{props.stores.average}</p>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
                      <button onClick={()=>props.addRatings({rating,store_id})}>AddRating</button>
-                    <input name='comment' placeholder='newcomment' onChange={(event) => {
+                    <input
+                    data-testid="input-comment"
+                    name='comment' placeholder='newcomment' onChange={(event) => {
                         setcomment(event.target.value)
                     }} />
-                     <button onClick={()=>props.editStores(store_id, comment)}>Edit Comment</button>
+                     <button onClick={()=>props.editStores(store_id,comment)}>Edit Comment</button>
                       <button onClick={()=>props.deleteStores(store_id)}>Delete</button>
                 </div>
                 :

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './Nav.scss'
 
 export default function Nav(){
-    return<div>
+    return<div data-testid="location-display">
         <nav className = 'nav'>
             <Link to ="/" className = 'link about'>About</Link>
             <Link to ="/stores" className = ' link stores'>Stores</Link>

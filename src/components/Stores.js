@@ -51,6 +51,7 @@ class Stores extends Component{
             const newRating = {rating, store_id}
             axios.post('/api/addrating', newRating)
             .then(()=>{
+                console.log(this.state.stores)
                 this.getStores()
             })
             .catch(err=>{
