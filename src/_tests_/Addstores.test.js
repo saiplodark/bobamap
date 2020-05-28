@@ -9,12 +9,13 @@ describe('testing for the AddStores component', ()=>{
         expect(container.textContent).toContain("add")
     })
 
-    test('Clicking button makes user addStores',()=>{
-        const  {getByTestId, container} = render(<AddStores/>)
-        const button = getByTestId("add_button")
-
-        expect(container.textContent).toContain("")
-        fireEvent.change(input, { target: { value: '$23.0' } })
-        expect(container.textContent).toContain("what typed")
+    test('user input store name',()=>{
+        const  {getByTestId} = render(<AddStores/>)
+        const input = getByTestId("input-name")
+        fireEvent.change(input, { target: { value: 'boba' } })
+        expect(input.value).toBe('boba')
     })
 })
+
+
+//test id at input which one I want to test

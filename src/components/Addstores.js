@@ -38,6 +38,7 @@ class AddStores extends Component{
                 <span>
                     <label>name</label>
                     <input
+                    data-testid="input-name"
                     type ="text"
                     name = "name"
                     value = {this.state.name}
@@ -62,7 +63,7 @@ class AddStores extends Component{
                     onChange = {(e)=> this.changeHandler(e)}
                     placeholder = "Comment"/>
                 </span>
-                <button data-testid="add-button">add</button>
+                <button >add</button>
                 </form>
             </div>
         )
