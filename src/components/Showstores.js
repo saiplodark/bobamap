@@ -59,7 +59,6 @@ return <div className='showstores'>
                     <p>{address}</p>
                     <p>{rating}</p>
                     <p>{comment}</p>
-                    <button className="just test to see">Testing</button>
                 </div>
         }
     </div>
