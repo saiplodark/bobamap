@@ -23,6 +23,19 @@ module.exports={
             res.status(500).send(error)
         }
     },
+    addRatings: async (req, res) => {
+        try {
+            const db = req.app.get('db')
+            const {rating,store_id} = req.body
+            // const {user_id} = req.session.user
+            const stores = await db.ratings.add_ratings([rating,store_id])
+            console.log(stores)
+            res.status(200).send(stores)
+        } catch (error) {
+            console.log('error add rating', error)
+            res.status(500).send(error)
+        }
+    },
     editStores:async(req,res)=>{
         try {
             const db = req.app.get('db')
@@ -32,7 +45,7 @@ module.exports={
             const stores = await db.stores.update_stores([id, comment])
             res.status(200).send(stores)  
         } catch (error) {
-            console.log('error updating comment')
+            console.log('error updating comment', error)
             res.status(500).send(error)
         }
     },
@@ -56,7 +69,7 @@ module.exports={
             const stores = await db.ratings.update_ratings([id, rating])
             res.status(200).send(stores)  
         } catch (error) {
-            console.log('error updating rating')
+            console.log('error updating rating', error)
             res.status(500).send(error)
         }
     },

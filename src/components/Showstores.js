@@ -10,7 +10,7 @@ function Showstores(props) {
     const { logged_in, is_admin } = props.user
     // console.log(logged_in)
     // console.log(is_admin)
-    console.log(props.user)
+    console.log(props)
 
     const avgRating = () => {
         axios.get('/api/avgrating')
@@ -33,11 +33,11 @@ return <div className='showstores'>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
-                     <button onClick={()=>props.editRating(store_id)}>Edit Rating</button>
+                     <button onClick={()=>props.addRatings({rating,store_id})}>AddRating</button>
                     <input name='comment' placeholder='newcomment' onChange={(event) => {
                         setcomment(event.target.value)
                     }} />
-                     <button onClick={()=>props.editStores(store_id)}>Edit Comment</button>
+                     <button onClick={()=>props.editStores(store_id, comment)}>Edit Comment</button>
                       <button onClick={()=>props.deleteStores(store_id)}>Delete</button>
                 </div>
                 :
@@ -50,7 +50,7 @@ return <div className='showstores'>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
-                      <button onClick={()=>props.editRating(store_id)}>Edit Rating</button>
+                     <button onClick={()=>props.addRatings({rating,store_id})}>AddRating</button>
                 </div>
          ) :
                 <div>

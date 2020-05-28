@@ -1,3 +1,3 @@
 UPDATE rating
 SET rating = $2
-WHERE store_id = $1
+WHERE rating_id = $1

@@ -6,7 +6,7 @@ massive = require('massive'),
 path = require('path'),
 {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET,STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY} = process.env,
 {login, register, logout, userSession} = require('./controllers/authCtrl'),
-{getStores, addStores,editStores,deleteStores,editRating, avgRating} = require('./controllers/storesCtrl'),
+{getStores, addStores,editStores,deleteStores,editRating, avgRating, addRatings} = require('./controllers/storesCtrl'),
 {adminOnly} = require('./middleware/adminOnly')
 app = express();
 
@@ -44,6 +44,7 @@ app.delete('/api/deletestores/:id', adminOnly, deleteStores)
 // Stores-normal-users
 app.put('/api/editrating/:id', editRating)
 app.get('/api/avgrating', avgRating)
+app.post('/api/addrating', addRatings)
 
 
 // app.get('*', (req, res)=>{

@@ -6,8 +6,8 @@ import Login from './components/Login'
 import Support from './components/Support'
 
 export default <Switch>
-    <Route exact path ='/' component={Stores}/>
-    <Route  path ='/about' component={About}/>
+    <Route exact  path ='/' component={About}/>
+    <Route path ='/stores' component={Stores}/>
     <Route  path ='/login' component={Login}/>
     <Route  path ='/support' component={Support}/>
 </Switch>

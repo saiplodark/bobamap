@@ -62,7 +62,7 @@ class AddStores extends Component{
                     onChange = {(e)=> this.changeHandler(e)}
                     placeholder = "Comment"/>
                 </span>
-                <button >add</button>
+                <button data-testid="add-button">add</button>
                 </form>
             </div>
         )

@@ -46,6 +46,18 @@ class Stores extends Component{
             })
         }
 
+        addRatings=(rate)=>{
+            const{rating, store_id} = rate
+            const newRating = {rating, store_id}
+            axios.post('/api/addrating', newRating)
+            .then(()=>{
+                this.getStores()
+            })
+            .catch(err=>{
+                console.log('failed add ratings')
+            })
+        }
+
         editStores=(id,comment)=>{
             axios.put(`/api/editstores/${id}?comment=${comment}`)
             .then(()=>this.getStores())
@@ -54,13 +66,13 @@ class Stores extends Component{
             })
         }
 
-        editRating=(id,rating)=>{
-            axios.put(`/api/editrating/${id}?rating=${rating}`)
-            .then(()=>this.getStores())
-            .catch(err=>{
-                console.log('edit rating failed')
-            })
-        }
+        // editRating=(id,rating)=>{
+        //     axios.put(`/api/editrating/${id}?rating=${rating}`)
+        //     .then(()=>this.getStores())
+        //     .catch(err=>{
+        //         console.log('edit rating failed')
+        //     })
+        // }
     
         deleteStores=(id)=>{
             axios.delete(`/api/deletestores/${id}`)
@@ -77,7 +89,7 @@ class Stores extends Component{
                 key={stores.store_id}
                 stores={stores}
                 editStores={this.editStores}
-                editRating={this.editRating}
+                addRatings={this.addRatings}
                 deleteStores={this.deleteStores}/>
                 )
                 return(

@@ -28,7 +28,9 @@ class Signout extends React.Component{
             }
         
         return<div className="out">
-            <button onClick={this.logout} >logout</button>
+            <button 
+            data-testid="signout-button"
+            onClick={this.logout} >logout</button>
         </div>
     }
 

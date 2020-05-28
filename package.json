@@ -22,6 +22,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
+    "sass": "^1.26.5",
+    "start": "^5.1.0",
     "stripe": "^8.55.0",
     "uuid": "^8.1.0"
   },
