@@ -1,3 +1,5 @@
+$colorc : rgba(167, 237, 242, 0.296);
+
 .nshow{
     // background-color: white;
     width: 90vw;
@@ -5,17 +7,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
-    // input{
-    //     width: 100px;
-    //     height: 40px;
-    // }
-
     img{
         width: 200px;
         height: 200px;
     }
-
+    span{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+    }
     p{
         color: rgba(205, 109, 109, 0.885);
         width: 600px;
@@ -32,17 +33,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
+    span{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        }
     input{
         width: 100px;
         height: 40px;
     }
-
     img{
         width: 200px;
         height: 200px;
     }
-
     p{
         color: rgba(205, 109, 109, 0.885);
         width: 400px;
@@ -50,4 +54,41 @@
         // background-color: rebeccapurple;
         text-align: left;
     }
+}
+
+@media screen and (max-width:767px){
+    .nshow{
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        span{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .ushow{
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        input{
+            width: 100px;
+            height: 30px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+        }
+        span{
+            width: 80vw;
+            font-size: 30px;
+            background-color: $colorc;
+        }
+    }
+    
 }

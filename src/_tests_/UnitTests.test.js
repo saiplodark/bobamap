@@ -8,7 +8,11 @@ import { act } from 'react-dom/test-utils';
 
 const {
     getStores
-} = require('./Function');
+} = require('./Function')
+
+// const{
+//   getStores
+// } = require('../components/Stores')
 
 describe('Testing get stores endpoint', () => {
   let container = null;
@@ -29,6 +33,7 @@ describe('Testing get stores endpoint', () => {
       await act(async () => {
         stores = await getStores();
       });
+      console.log(stores)
       expect(stores[0].name).toBe('Tea Swirl');
       done();
     });

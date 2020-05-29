@@ -25,7 +25,7 @@ return <div className='showstores'>
         {
         logged_in ?(
             is_admin ?
-                <div>
+                <div className="ashow">
                     <img className="img" src={img} alt="store pics" />
                     <p>{name}</p>
                     <p>{address}</p>
