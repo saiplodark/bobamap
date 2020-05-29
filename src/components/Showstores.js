@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux"
 import axios from 'axios'
+import './Showstores.scss'
 
 function Showstores(props) {
     console.log(props)
@@ -43,24 +44,28 @@ return <div className='showstores'>
                       <button onClick={()=>props.deleteStores(store_id)}>Delete</button>
                 </div>
                 :
-                <div>
+                <div className='ushow'>
                     <img className="img" src={img} alt="store pics" />
+                    <span>
                     <p>{name}</p>
                     <p>{address}</p>
-                    <p>{props.stores.rating}</p>
+                    <p>{props.stores.average}</p>
                     <p>{comment}</p>
+                    </span>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
                      <button onClick={()=>props.addRatings({rating,store_id})}>AddRating</button>
                 </div>
          ) :
-                <div>
+                <div className='nshow'>
                     <img className="img" src={img} alt="store pics" />
-                    <p>{name}</p>
-                    <p>{address}</p>
-                    <p>{rating}</p>
-                    <p>{comment}</p>
+                    <span>
+                    <p>name:{name}</p>
+                    <p>address:{address}</p>
+                    <p>rating:{props.stores.average}</p>
+                    <p>comment:{comment}</p>
+                    </span>
                 </div>
         }
     </div>
