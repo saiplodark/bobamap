@@ -27,10 +27,13 @@ return <div className='showstores'>
             is_admin ?
                 <div className="ashow">
                     <img className="img" src={img} alt="store pics" />
-                    <p>{name}</p>
-                    <p>{address}</p>
-                    <p>{props.stores.comment}</p>
-                    <p>{props.stores.average}</p>
+                    <span>
+                    <p>name:{name}</p>
+                    <p>address:{address}</p>
+                    <p>rating:{props.stores.average}</p>
+                    <p>comment:{comment}</p>
+                    </span>
+                    <span>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
                     }} />
@@ -41,16 +44,17 @@ return <div className='showstores'>
                         setcomment(event.target.value)
                     }} />
                      <button onClick={()=>props.editStores(store_id,comment)}>Edit Comment</button>
+                    </span>
                       <button onClick={()=>props.deleteStores(store_id)}>Delete</button>
                 </div>
                 :
                 <div className='ushow'>
                     <img className="img" src={img} alt="store pics" />
                     <span>
-                    <p>{name}</p>
-                    <p>{address}</p>
-                    <p>{props.stores.average}</p>
-                    <p>{comment}</p>
+                    <p>name:{name}</p>
+                    <p>address:{address}</p>
+                    <p>rating:{props.stores.average}</p>
+                    <p>comment:{comment}</p>
                     </span>
                     <input name='rating' placeholder='newrating' onChange={(event) => {
                         setrating(event.target.value)
