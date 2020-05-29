@@ -38,10 +38,10 @@ class Header extends React.Component{
             <button className='menu' onClick={()=>this.toggleSideBarFunc()}>Menu</button>
                     <nav className={this.state.toggleSideBar? "show":"hide"}>
             <div className="menulink">
-            <Link to ="/" className = 'about'>About</Link>
-            <Link to ="/stores" className = 'stores'>Stores</Link>
-            <Link to ="/login" className = 'login'>Login</Link>
-            <Link to ="/support" className = 'support'>Support</Link>
+            <Link to ="/" className = 'ml about'>About</Link>
+            <Link to ="/stores" className = 'ml stores'>Stores</Link>
+            <Link to ="/login" className = 'ml login'>Login</Link>
+            <Link to ="/support" className = 'ml support'>Support</Link>
     </div>
                     </nav>
             {
