@@ -2,7 +2,7 @@ import React from 'react'
 import './About.scss'
 
 export default function About(){
-    return<div>
+    return<div className='aboutclass'>
         <p className='aboutstores'>
             There are more and more Boba Tea Shop opened last few years, as a person from Taiwan
             where Boba Tea was originated from, I created this website to let people know which store has
