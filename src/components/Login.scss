@@ -1,0 +1,83 @@
+%dfg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://cdn.shopify.com/s/files/1/1573/0401/products/Screen_Shot_2018-07-14_at_9.35.54_PM_1800x.png?v=1531618668');
+    flex-direction: column;
+    background-repeat: no-repeat;
+    // background-size: 50vw;
+}
+.login{
+    @extend %dfg;
+        input{
+            margin-top: 20vh;
+            background-color: black;
+            font-size: 50px;
+            color: whitesmoke;
+        }
+        button{
+            font-size: 30px;
+            margin-top: 10vh;
+            background-color: honeydew;
+            width: 200px;
+            height: 100px;
+        }
+        input:hover{
+            background-color:rgba(230, 232, 204, 0.865);
+            color:darkblue;
+        }
+        button:hover{
+            background-color: whitesmoke;
+            color: darkgray;
+        }
+    }
+    
+    .register{
+        @extend %dfg;
+        input{
+            margin-top: 15vh;
+            background-color: black;
+            font-size: 50px;
+            color: whitesmoke;
+        }
+        .rc{
+            width: 30px;
+            height: 30px;
+        }
+        button{
+            width: 200px;
+            font-size: 30px;
+            margin-top: 15px;
+            background-color: honeydew;
+        }
+        input:hover{
+            background-color:rgba(230, 232, 204, 0.865);
+            color:darkblue;
+        }
+        button:hover{
+            background-color: whitesmoke;
+            color: darkgray;
+        }
+    }
+    
+
+    @media screen and (max-width:767px){
+        .register button{
+            background-color: white;
+            font-size: 30px;
+            height: 100px;
+        }
+        .login button{
+            background-color: white;
+            color: darkgrey;
+            font-size: 50px;
+            height: 150px;
+            width: 150px;
+        }
+    }

@@ -3,6 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {login, register} from '../Redux/userReducer'
+import './Login.scss'
 
  class Login extends React.Component{
     constructor(props){
@@ -77,7 +78,7 @@ handleRegister = e => {
                 <div className="register">
                     <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.changeHandler(e)}/>
                     <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.changeHandler(e)}/>
-                    <input type="checkbox" id="_adminCheckbox" onChange={() => this.toggle_admin()} />
+                    <input className="rc" type="checkbox" id="_adminCheckbox" onChange={() => this.toggle_admin()} />
                     <button 
                     onClick={this.handleRegister}>Register</button>
                     <button onClick={() => this.toggleRegisterMode()}>Member signin</button>

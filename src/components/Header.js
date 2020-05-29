@@ -48,7 +48,7 @@ class Header extends React.Component{
                 (this.props.loading)
                 ?
                 <div className='welcome'>Loading...</div>
-                :<div className='welcome'>Welcome {}</div>
+                :<div className='welcome'>Welcome to boba-map</div>
             }
             {
                 this.props.user?
