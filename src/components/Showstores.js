@@ -31,7 +31,7 @@ return <div className='showstores'>
                     <p>name:{name}</p>
                     <p>address:{address}</p>
                     <p>rating:{props.stores.average}</p>
-                    <p>comment:{comment}</p>
+                    <p>comment:{props.stores.comment}</p>
                     </span>
                     <span>
                     <input name='rating' placeholder='newrating' onChange={(event) => {

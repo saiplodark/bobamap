@@ -7,7 +7,8 @@ path = require('path'),
 {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET,STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY} = process.env,
 {login, register, logout, userSession} = require('./controllers/authCtrl'),
 {getStores, addStores,editStores,deleteStores,editRating, avgRating, addRatings} = require('./controllers/storesCtrl'),
-{adminOnly} = require('./middleware/adminOnly')
+{adminOnly} = require('./middleware/adminOnly'),
+{completePayment} = require('./controllers/tipCtrl');
 app = express();
 
 // app.use(express.static(`${__dirname}/../build`));
@@ -46,6 +47,8 @@ app.put('/api/editrating/:id', editRating)
 app.get('/api/avgrating', avgRating)
 app.post('/api/addrating', addRatings)
 
+//stripe
+app.post("/api/payment", completePayment)
 
 // app.get('*', (req, res)=>{
 //     res.sendFile(path.join(__dirname, '../build/index.html'));
