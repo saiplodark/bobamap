@@ -29,6 +29,7 @@ class AddStores extends Component{
                 <span>
                     <label>img</label>
                     <input
+                    data-testid="input-img"
                     type ="text"
                     name = "img"
                     value = {this.state.img}
@@ -48,6 +49,7 @@ class AddStores extends Component{
                 <span>
                     <label>address</label>
                     <input
+                    data-testid="input-address"
                     type ="text"
                     name = "address"
                     value = {this.state.address}
@@ -57,6 +59,7 @@ class AddStores extends Component{
                 <span>
                     <label>comment</label>
                     <input
+                    data-testid="input-comment"
                     type ="text"
                     name = "comment"
                     value = {this.state.comment}
