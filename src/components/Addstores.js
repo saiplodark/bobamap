@@ -1,4 +1,5 @@
 import React,{ Component } from "react"
+import './Addstores.scss'
 
 class AddStores extends Component{
     constructor(props){
@@ -24,7 +25,7 @@ class AddStores extends Component{
 
     render(){
         return(
-            <div>
+            <div >
                 <form onSubmit={this.submitHandler}>
                 <span>
                     <label>img</label>
@@ -66,7 +67,7 @@ class AddStores extends Component{
                     onChange = {(e)=> this.changeHandler(e)}
                     placeholder = "Comment"/>
                 </span>
-                <button >add</button>
+                <button className='adds'>add</button>
                 </form>
             </div>
         )
